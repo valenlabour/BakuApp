@@ -1,38 +1,323 @@
-.App {
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&display=swap");
+@import url(https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,600&family=Poppins:wght@300;400;500&display=swap);
+
+* {
+  padding: 0px;
+  margin: 0px;
+}
+
+/* Navbar */
+header {
+  background-color: #ffffff;
+}
+.navbar {
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  padding: 10px 0px;
+  background-color:#000000;
+  box-shadow: 0px 1.5px 1.5px #acaaaa;
+}
+.container {
+  display: flex;
+  justify-content:space-between ;
+}
+.logo-header {
+  display: inline-block;
+}
+.logo-header img {
+  width: 60%;
+  height: 60%;
+}
+.nav {
+  padding-right: 150px;
+  display: flex;
+  justify-content: flex-start;
+}
+.nav-item {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: .8em;
+  font-weight: 500;
+  text-transform: uppercase;
+  list-style: none;
+  padding: 0px 20px;
+  margin: 0px;
+}
+.nav-item a {
+  text-decoration: none;
+  color:#ffffff;
+  letter-spacing: 1px;
+}
+.nav-item a:hover {
+  color: #6c8b99;
+  transition: all .2s;
+  font-weight: bold;
+}
+
+.container-cart {
+  display: flex;
+  align-items: center;
+}
+.container-cart span {
+  color: #ffffff;
+}
+.cart {
+  zoom: 1.2;
+}
+.contador {
+  background-color: #6c8b99;
+}
+
+/* AllShop */
+
+.productos {
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.productos-titulo {
+  margin-top: 150px;
+  font-family: "Josefin Sans", san-serif;
+  font-size: 3.5em;
+  font-weight: bold;
+}
+.container-product {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 60px;
+}
+.card {
+  width: 320px;
+  justify-content: flex-start;
+  box-sizing: content-box;
+  margin: 50px 20px;
+}
+.card-img:hover {
+  transition: all .7s;
+  transform: scale(1.005, 1.005);
+}
+.card-body {
+  text-align: center;
+  height: auto;
+}
+.card-title {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 1.3em;
+  font-weight: 700;
+  color: #1f1f1f;
+  margin: 0px;
+}
+.card-cost {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 1.3em;
+  font-weight: 600;
+  color: #000000;
+  margin: 0px;
+}
+.card-text {
+  font-family: 'Josefin Sans', sans-serif;
+  color: #000000;
+  font-size: .95em;
+  font-weight: 500;
+  margin: 0px;
+  margin-bottom: 15px;
+}
+.card-detail {
+  font-size: .9em;
+  text-decoration: none;
+  color: #6c8b99;
+}
+.card-detail:hover {
+  transition: all .5s;
+  opacity: 50%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* SECCIÓN PRODUCTO */
+
+.seccion-producto {
+  margin-top: 150px;
+  padding: 0;
+}
+.producto-nombre {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: bold;
+  color: #000000;
+}
+.producto-precio {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: bold;
+  margin-top: 30px ;
+  font-size: 1.3em;
+}
+.info-pago {
+  margin-bottom: 35px;
+}
+.info-pago__desc {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.info-pago__desc img {
+  margin-right: 10px;
+}
+.info-pago p {
+  margin: 0px;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+p span {
+  color: #6c8b99;
+  font-weight: bold;
+  font-size: 1em;
+  font-family: 'Josefin Sans', sans-serif;
+}
+.talle {
+  margin-bottom: 20px;
+}
+.talle__caja {
+  display: inline;
+  width: 200px;
+  height: 50px;
+  font-size: 1.2em;
+}
+.talle p {
+  font-family: 'Josefin Sans', sans-serif;
+  color: #3c697e;
+}
+.guia-talles:hover {
+  opacity: 80%;
+}
+.count {
+  flex-direction: row;
+  justify-content: space-between;
+}
+.container-cant-producto {
+  display: flex;
+  width: 50%;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #cac9c9;
+  border-radius: 30px;
+  padding: 3px;
+}
+button {
+  padding: 0px;
+  border: None;
+  background-color: #ffffff;
+}
+.container-cant-producto svg {
+  border: None;
+  cursor: pointer;
+}
+.container-cant-producto svg:hover {
+  color: #e67e21;
+}
+.cant-producto__total {
+  margin: 0px;
+}
+.btn-añadir-carrito {
+  background-color:#6c8b99;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: .7em;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #ffffff;
+  width: 140px;
+  height: 40px;
+  border: 2px solid #6c8b99;
+  border-radius: 30px;
+}
+.btn-añadir-carrito:hover {
+  transition: all .2s;
+  background-color: #ffffff;
+  color: #6c8b99;
+  border-color: #6c8b99;
+
+}
+.btn-añadir-carrito__text {
+  margin: 0px;
+}
+.btn-añadir-carrito__text:hover {
+  font-weight: bold;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Footer */
+
+.container-footer {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  padding-top: 70px;
+  padding-bottom: 30px;
 }
-
-.App-link {
-  color: #61dafb;
+.redes {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  padding: 0px;
+  margin-bottom: 50px;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.redes li {
+  padding: 0px 10px;
+}
+.redes li a {
+  color: #1f1f1f;
+}
+.redes li:hover {
+  transition: all .5s;
+  opacity: 75%;
+}
+.atajos {
+  display: flex;
+  list-style: none;
+  justify-content: space-between;
+  padding: 0px;
+  margin-bottom: 30px;
+}
+.atajos li {
+  padding: 0px 20px;
+  font-family: "Poppins", sans-serif;
+  font-size: .9em;
+  font-weight: 600;
+  cursor: pointer;
+}
+.atajos li:hover {
+  transition: all .5s;
+  opacity: 75%;
+}
+.info {
+  display: flex;
+  flex-direction: column;
+  padding: 0px;
+}
+.info li{
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  font-family: "Poppins", sans-serif;
+  font-size: .9em;
+  font-weight: 500;
+  padding-top: 15px;
+}
+.info li p {
+  padding-left: 10px;
+}
+.derechos {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 40px;
+  margin-bottom: 30px;
+}
+.derechos li {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  font-family: "Poppins", sans-serif;
+  font-size: .7em;
+  color: #1f1f1f;
+}
+.derechos li svg {
+  padding-right: 5px;
 }
