@@ -1,21 +1,41 @@
 import React, { useEffect, useState } from 'react';
-import { obtenerProductos } from '../../productos';
 import ItemList from './ItemList';
 import { useParams } from 'react-router-dom';
+import { getDocs, query, where } from 'firebase/firestore';
+import { coleccionProductos } from '../../firebaseConfig';
 
 const ItemListContainer = () => {
     const [items, setItems] = useState([]);
 
-    const {categoria} = useParams();
+    const [loading, setLoading] = useState(true);
+
+    const { categoria } = useParams();
 
     useEffect(() => {
-        obtenerProductos(categoria)
-            .then((res) => {
-                setItems(res);
-            })
-            .catch((error) => {
-                console.log(error);
+
+        const reducirColeccion = () =>  query(coleccionProductos, where('categoria', '==', categoria));
+
+        const productosAMostrar = categoria ? reducirColeccion() : coleccionProductos
+
+        getDocs(productosAMostrar)
+        .then((res) => {
+            const productos = res.docs.map((producto) => {
+                return {
+                    id: producto.id,
+                    ...producto.data()
+                };
             });
+            setItems(productos)
+        })
+        .catch((error) => {
+            console.log(error)
+        })
+        .finally(() => {
+            setLoading(false)
+        })
+
+        return () => {setLoading(true)}
+
     }, [categoria]);
 
     const seccion = (categoria) => {
@@ -24,6 +44,13 @@ const ItemListContainer = () => {
             titulo = categoria[0].toUpperCase() + categoria.slice(1)
         }
         return titulo
+    }
+
+    if (loading) {
+        return (
+            <div className='loading'>
+            </div>
+        )
     }
 
     return (
